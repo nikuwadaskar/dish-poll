@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import users from "./Users";
-function LogIn({ auth, setAuth }) {
-  const [username, setUsername] = useState("");
+function LogIn({ auth, setAuth,username,setUsername }) {
+
   const [password, setPassword] = useState("");
+
+
 
   function authentification(e) {
     let status = false;
