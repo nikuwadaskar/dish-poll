@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+// just navbar with link to home and poll page 
 export default function Navbar() {
   return (
     <>

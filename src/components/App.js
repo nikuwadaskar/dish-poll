@@ -6,9 +6,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import FoodcardRanker from "./FoodcardRanker";
 
 function App() {
+  // setting auth as false initially 
   const [auth, setAuth] = useState(false);
   const [username, setUsername] = useState("Guest");
-  // chceking uthentification before rendering any page
+  // chceking auth before rendering any page
   return (
     <>
       <Router>

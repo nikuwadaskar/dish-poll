@@ -2,10 +2,11 @@ import React, { memo, useState } from "react";
 import Radios from "./Radios";
 function Foodcard({ item, username }) {
   const [newclass, setNone] = useState("checkbox-hide");
+  // creating relevant image we image urlso that relevant image gets loaded 
   const newImage =
     item.image.substring(0, item.image.length - 4) +
     item.dishName.replace(/\s+/g, "").toLowerCase();
-
+// setting visibility of checkbox iusing states
   function giveRank() {
     setNone("checkbox-container");
   }

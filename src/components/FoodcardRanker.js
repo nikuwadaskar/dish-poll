@@ -1,9 +1,11 @@
 import React from "react";
 export default function FoodcardRanker({ username }) {
   let baseUrl = "https://loremflickr.com/300/300/";
+  // setting creating relevent username to extract related data from local storage
   const first = "first" + username;
   const second = "second" + username;
   const third = "third" + username;
+  // getting data from local storage and storing in array so that we can map over it 
   const rankers = [
     JSON.parse(localStorage.getItem(first)),
     JSON.parse(localStorage.getItem(second)),
@@ -12,6 +14,7 @@ export default function FoodcardRanker({ username }) {
 
   return (
     <>
+    {/* setting user name */}
       {username === "Guest" ? (
         <h1 style={{ color: "white" }}>Go Log In First</h1>
       ) : (
@@ -20,6 +23,7 @@ export default function FoodcardRanker({ username }) {
         </h1>
       )}
       <div className="container">
+      {/* mapping over data got from local storage */}
         {rankers.map((e) => {
           if (e && e.username === username) {
             return (
@@ -43,6 +47,7 @@ export default function FoodcardRanker({ username }) {
               </div>
             );
           }
+          {/* this return statement staisfy the need of returning something from map function while above return is nestated return so thats why we need this */}
           return null;
         })}
       </div>

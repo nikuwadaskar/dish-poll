@@ -3,7 +3,7 @@ import users from "./Users";
 function LogIn({ setAuth, username, setUsername }) {
   const [password, setPassword] = useState("");
 
-  // doinf authentification
+  // doing authentification
   function authentification(e) {
     let status = 0;
     for (const element of users) {

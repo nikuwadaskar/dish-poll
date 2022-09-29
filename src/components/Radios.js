@@ -2,7 +2,7 @@
 import React from "react";
 
 export default function Radios({ none, item, changeBtn,username}) {
-
+// extracting value from checkbox and and setting relavent data in local storage so that we can use it poll page
   function displayRadioValue() {
     const elem = document.getElementsByName("rank");
     for (let i = 0; i < elem.length; i++) {
@@ -13,6 +13,7 @@ export default function Radios({ none, item, changeBtn,username}) {
         localStorage.setItem(userStorage,JSON.stringify(item))
       }
     }
+    // this function basically close the ui of checkbox
     changeBtn();
   }
   return (
