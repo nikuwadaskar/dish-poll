@@ -2,7 +2,6 @@ import React, { memo, useState } from "react";
 import Radios from "./Radios";
 function Foodcard({ item, username }) {
   const [newclass, setNone] = useState("checkbox-hide");
-
   const newImage =
     item.image.substring(0, item.image.length - 4) +
     item.dishName.replace(/\s+/g, "").toLowerCase();
@@ -13,7 +12,6 @@ function Foodcard({ item, username }) {
   function changeBtn() {
     setNone("checkbox-hide");
   }
-
   return (
     <>
       <figure className="snip1527">

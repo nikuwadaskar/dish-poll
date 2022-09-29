@@ -1,30 +1,27 @@
 import React, { useState } from "react";
 import users from "./Users";
-function LogIn({ auth, setAuth,username,setUsername }) {
-
+function LogIn({ setAuth, username, setUsername }) {
   const [password, setPassword] = useState("");
 
-
-
+  // doinf authentification
   function authentification(e) {
-    let status = false;
+    let status = 0;
     for (const element of users) {
       if (element.username === username) {
         if (element.password !== password) {
-          status = false;
+          alert("Enter Correct Password");
         } else {
-          status = true;
           setAuth(element.password === password);
         }
       } else {
-        status = false;
+        status++;
       }
     }
-    if (!status) {
-      alert("sambhal ke babua ye kya karr raha hai");
+    if (status === 5) {
+      alert("Please Enter Correct UserName");
     }
   }
-
+  // Log in page UI
   return (
     <>
       <div id="main" className="main-container">

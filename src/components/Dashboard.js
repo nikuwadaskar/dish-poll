@@ -19,7 +19,7 @@ export default function Dashboard({ username }) {
   }, []);
 
   return (
-    <div style={{paddingTop:'35px'}} className="flex-manage">
+    <div className="flex-manage">
       {data ? (
         data.map((props) => (
           <Foodcard item={props} username={username} key={props.id} />

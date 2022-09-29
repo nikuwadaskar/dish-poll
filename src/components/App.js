@@ -8,9 +8,9 @@ import FoodcardRanker from "./FoodcardRanker";
 function App() {
   const [auth, setAuth] = useState(false);
   const [username, setUsername] = useState("Guest");
-
+  // chceking uthentification before rendering any page
   return (
-    <div>
+    <>
       <Router>
         <Navbar />
         <Routes>
@@ -49,7 +49,7 @@ function App() {
           />
         </Routes>
       </Router>
-    </div>
+    </>
   );
 }
 

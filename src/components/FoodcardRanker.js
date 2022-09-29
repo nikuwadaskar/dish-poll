@@ -1,5 +1,4 @@
 import React from "react";
-// import './css/FoodCardRanker.css'
 export default function FoodcardRanker({ username }) {
   let baseUrl = "https://loremflickr.com/300/300/";
   const first = "first" + username;
@@ -13,12 +12,18 @@ export default function FoodcardRanker({ username }) {
 
   return (
     <>
-      <h1 style={{ color: "white" }}>{username=='Guest'?<h1>Go Log In First</h1>:<h1>Top three of {username}</h1>}</h1>
+      {username === "Guest" ? (
+        <h1 style={{ color: "white" }}>Go Log In First</h1>
+      ) : (
+        <h1 style={{ color: "white" }}>
+          Top {rankers.length} of {username}
+        </h1>
+      )}
       <div className="container">
         {rankers.map((e) => {
-          if (e &&e.username === username) {
+          if (e && e.username === username) {
             return (
-              <div  key={e.id}>
+              <div key={e.id}>
                 <div
                   style={{
                     backgroundImage: `url(${
@@ -33,15 +38,14 @@ export default function FoodcardRanker({ username }) {
                     <h2>{e.value.toUpperCase()}</h2>
                     <h3>{e.dishName}</h3>
                     <p>{e.description}</p>
-                   
                   </div>
                 </div>
               </div>
             );
           }
+          return null;
         })}
       </div>
-     
     </>
   );
 }

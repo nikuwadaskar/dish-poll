@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
-    <div>
+    <>
       <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
           <h3> <strong>DishPoll</strong> </h3>
@@ -34,6 +34,6 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
-    </div>
+    </>
   );
 }

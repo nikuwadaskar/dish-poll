@@ -1,11 +1,10 @@
-// import { cleanup } from "@testing-library/react";
+
 import React from "react";
 
 export default function Radios({ none, item, changeBtn,username}) {
 
   function displayRadioValue() {
-    var elem = document.getElementsByName("rank");
-
+    const elem = document.getElementsByName("rank");
     for (let i = 0; i < elem.length; i++) {
       if (elem[i].checked) {
         const value=elem[i].value
@@ -17,7 +16,7 @@ export default function Radios({ none, item, changeBtn,username}) {
     changeBtn();
   }
   return (
-    <div>
+    <>
       <div id="checkbox" className={none}>
         <h1>{item.dishName}</h1>
         <div className="form-check">
@@ -68,6 +67,6 @@ export default function Radios({ none, item, changeBtn,username}) {
           </button>
         </div>
       </div>
-    </div>
+    </>
   );
 }
