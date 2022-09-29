@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { memo, useState } from "react";
 import Radios from "./Radios";
-export default function Foodcard({item,rankers}) {
+function Foodcard({ item, username }) {
   const [newclass, setNone] = useState("checkbox-hide");
 
   const newImage =
-  item.image.substring(0, item.image.length - 4) +
+    item.image.substring(0, item.image.length - 4) +
     item.dishName.replace(/\s+/g, "").toLowerCase();
 
   function giveRank() {
@@ -13,7 +13,7 @@ export default function Foodcard({item,rankers}) {
   function changeBtn() {
     setNone("checkbox-hide");
   }
-  // useEffect(() => {}, [giveRank]);
+
   return (
     <>
       <figure className="snip1527">
@@ -23,18 +23,20 @@ export default function Foodcard({item,rankers}) {
         <figcaption>
           <h3>{item.dishName}</h3>
           <p>{item.description}</p>
-          <button className="btn mt-2 mb-0 btn-primary" onClick={giveRank}>
+          <button className="btn mb-0 btn-primary" onClick={giveRank}>
             Give Rating
           </button>
         </figcaption>
       </figure>
       <Radios
         none={newclass}
-       item={item}
+        item={item}
         setNone={setNone}
         changeBtn={changeBtn}
-        rankers={rankers}
+        username={username}
       />
     </>
   );
 }
+
+export default memo(Foodcard);

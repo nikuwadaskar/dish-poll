@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import FoodcardRanker from "./FoodcardRanker";
+
 import Foodcard from "./FoodCard";
 
-export default function Dashboard({ username, rankers }) {
+export default function Dashboard({ username }) {
   const [data, setData] = useState();
-  const [newclass, setNone] = useState("checkbox-hide");
+
   async function getData() {
     const getdata = await fetch(
       "https://raw.githubusercontent.com/syook/react-dishpoll/main/db.json"
@@ -12,23 +12,21 @@ export default function Dashboard({ username, rankers }) {
     setData(getdata);
   }
 
-  rankers[username] = username;
+  localStorage.setItem("name", username);
 
   useEffect(() => {
     getData();
   }, []);
 
   return (
-    <div>
+    <div style={{paddingTop:'35px'}} className="flex-manage">
       {data ? (
         data.map((props) => (
-          <Foodcard item={props} rankers={rankers} key={props.id} />
+          <Foodcard item={props} username={username} key={props.id} />
         ))
       ) : (
         <h1>Loading...</h1>
       )}
-      <h1> {username}</h1>
-      {/* <h1 > {fav}</h1> */}
     </div>
   );
 }

@@ -6,34 +6,47 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import FoodcardRanker from "./FoodcardRanker";
 
 function App() {
-  const [auth, setAuth] = useState(true);
+  const [auth, setAuth] = useState(false);
   const [username, setUsername] = useState("Guest");
-
-  let rankers = {
-    name: username,
-    first: [],
-    second: [],
-    third: [],
-  };
 
   return (
     <div>
       <Router>
         <Navbar />
         <Routes>
-          {/* {!auth ? (
-        <LogIn
-          auth={auth}
-          setAuth={setAuth}
-          username={username}
-          setUsername={setUsername}
-        />
-      ) : (
-        <Dashboard username={username} rankers={rankers} />
-      )} */}
-          <Route exact path="/" element={<Dashboard username={username} rankers={rankers}/>}/>
-          <Route exact path="/poll" element={<FoodcardRanker username={username} rankers={rankers}/>}/>
-            
+          <Route
+            exact
+            path="/"
+            element={
+              !auth ? (
+                <LogIn
+                  auth={auth}
+                  setAuth={setAuth}
+                  username={username}
+                  setUsername={setUsername}
+                />
+              ) : (
+                <Dashboard username={username} />
+              )
+            }
+          />
+
+          <Route
+            exact
+            path="/poll"
+            element={
+              !auth ? (
+                <LogIn
+                  auth={auth}
+                  setAuth={setAuth}
+                  username={username}
+                  setUsername={setUsername}
+                />
+              ) : (
+                <FoodcardRanker username={username} auth={auth} />
+              )
+            }
+          />
         </Routes>
       </Router>
     </div>

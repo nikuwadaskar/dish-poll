@@ -12,7 +12,6 @@ body {
 .main-container {
   width: 100%;
   height: 100vh;
-  background: url("https://images.pexels.com/photos/176851/pexels-photo-176851.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb");
   transition: 0.4s linear;
 }
 
@@ -112,13 +111,6 @@ body {
   opacity: 0;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
 .container {
   position: relative;
   display: flex;
@@ -134,7 +126,7 @@ body {
   width: 280px;
   height: 400px;
   margin: 30px;
-  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.3);
   border-radius: 15px;
   background: rgba(255, 255, 255, 0.1);
   overflow: hidden;
@@ -163,8 +155,8 @@ body {
   position: absolute;
   top: -80px;
   right: 30px;
-  font-size: 8em;
-  color: rgba(255, 255, 255, 0.05);
+  font-size: 5em;
+  color: rgba(255, 255, 255, 0.5);
   pointer-events: none;
 }
 
@@ -208,6 +200,12 @@ body {
   width: 100%;
 }
 
+.flex-manage{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
 .snip1527 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -222,7 +220,7 @@ body {
 }
 
 .snip1527 figcaption {
-  padding: 25px 20px 25px;
+  padding: 5px 20px 5px 20px;
   position: absolute;
   bottom: 0;
   z-index: 1;
@@ -235,29 +233,10 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #700877;
   content: "";
-  background: -moz-linear-gradient(
-    90deg,
-    #700877 0%,
-    #ff2759 100%,
-    #ff2759 100%
-  );
-  background: -webkit-linear-gradient(
-    90deg,
-    #700877 0%,
-    #ff2759 100%,
-    #ff2759 100%
-  );
   background: linear-gradient(90deg, #700877 0%, #ff2759 100%, #ff2759 100%);
   opacity: 0.8;
   z-index: -1;
-}
-
-.snip1527 h3,
-.snip1527 p {
-  margin: 0;
-  padding: 0;
 }
 
 .snip1527 h3 {
@@ -273,26 +252,16 @@ body {
   margin-bottom: 0px;
 }
 
-.snip1527 a {
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  position: absolute;
-  z-index: 1;
-}
-
 .snip1527:hover img,
 .snip1527.hover img {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
 
-/* Demo purposes only */
+
 
 body {
   background-color: #212121;
-
 }
 
 .checkbox-container{

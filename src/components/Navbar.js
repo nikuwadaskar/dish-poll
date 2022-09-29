@@ -6,7 +6,7 @@ export default function Navbar() {
     <div>
       <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
-          Navbar
+          <h3> <strong>DishPoll</strong> </h3>
           <button
             className="navbar-toggler"
             type="button"
@@ -22,12 +22,12 @@ export default function Navbar() {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="/">
-                  Home
+                 <strong>Home</strong> 
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/poll">
-                  Poll
+                <strong>Poll</strong> 
                 </Link>
               </li>
             </ul>

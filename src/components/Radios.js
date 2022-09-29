@@ -1,15 +1,17 @@
-import { cleanup } from "@testing-library/react";
-import React, { useEffect } from "react";
+// import { cleanup } from "@testing-library/react";
+import React from "react";
 
-export default function Radios({ none, item, changeBtn, rankers }) {
+export default function Radios({ none, item, changeBtn,username}) {
+
   function displayRadioValue() {
     var elem = document.getElementsByName("rank");
 
     for (let i = 0; i < elem.length; i++) {
       if (elem[i].checked) {
-        console.log(elem[i].value);
-        rankers[elem[i].value] = item;
-        console.log(rankers);
+        const value=elem[i].value
+        const userStorage=elem[i].value+username;
+        item={...item,value,username}
+        localStorage.setItem(userStorage,JSON.stringify(item))
       }
     }
     changeBtn();

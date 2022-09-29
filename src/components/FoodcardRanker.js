@@ -1,83 +1,47 @@
-import React, { useEffect } from "react";
+import React from "react";
 // import './css/FoodCardRanker.css'
-export default function FoodcardRanker({ username, rankers }) {
-  //     let baseUrl;
-
-  //     if (rankers.first.image){
-
-  //     }
-  //   const cardTwo = {
-  //     backgroundImage: `url(${
-  //       rankers.second.image.substring(0, rankers.second.image.length - 4) +
-  //       rankers.second.dishName.replace(/\s+/g, "").toLowerCase()
-  //     })`,
-  //     backgroundRepeat: 'no-repeat',
-  //     backgroundSize:'cover'
-  //   };
-  //   const cardFirst = {
-  //     backgroundImage: `url(${
-  //       rankers.first.image.substring(0, rankers.first.image.length - 4) +
-  //       rankers.first.dishName.replace(/\s+/g, "").toLowerCase()
-  //     })`,
-  //     backgroundRepeat: 'no-repeat',
-  //     backgroundSize:'cover'
-
-  //   };
-  //   const cardThird = {
-  //     backgroundImage: `url(${
-  //       rankers.third.image.substring(0, rankers.third.image.length - 4) +
-  //       rankers.third.dishName.replace(/\s+/g, "").toLowerCase()
-  //     })`,
-  //     backgroundRepeat: 'no-repeat',
-  //     backgroundSize:'cover'
-  //   };
-
-  for (let i = 0; i < 3; i++) {}
+export default function FoodcardRanker({ username }) {
+  let baseUrl = "https://loremflickr.com/300/300/";
+  const first = "first" + username;
+  const second = "second" + username;
+  const third = "third" + username;
+  const rankers = [
+    JSON.parse(localStorage.getItem(first)),
+    JSON.parse(localStorage.getItem(second)),
+    JSON.parse(localStorage.getItem(third)),
+  ];
 
   return (
     <>
-      {Object.keys(rankers).map(() => {
-        return (
-          <div className="container">
-            <div class="card">
-              <div class="content">
-                <h2>01</h2>
-                <h3>Card One</h3>
-                <p>{rankers.first.description}</p>
-                <a href="#">Read More</a>
+      <h1 style={{ color: "white" }}>{username=='Guest'?<h1>Go Log In First</h1>:<h1>Top three of {username}</h1>}</h1>
+      <div className="container">
+        {rankers.map((e) => {
+          if (e &&e.username === username) {
+            return (
+              <div  key={e.id}>
+                <div
+                  style={{
+                    backgroundImage: `url(${
+                      baseUrl + e.dishName.replace(/\s+/g, "").toLowerCase()
+                    })`,
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "cover",
+                  }}
+                  className="card"
+                >
+                  <div className="content">
+                    <h2>{e.value.toUpperCase()}</h2>
+                    <h3>{e.dishName}</h3>
+                    <p>{e.description}</p>
+                   
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        );
-      })}
-      {/* <div>
-        <div  class="container">
-          <div style={cardFirst} class="card">
-            <div class="content">
-              <h2>01</h2>
-              <h3>Card One</h3>
-              <p>{rankers.first.description}</p>
-              <a href="#">Read More</a>
-            </div>
-          </div>
-          <div style={cardTwo} class="card">
-            <div class="content">
-              <h2>02</h2>
-              <h3>Card Two</h3>
-              <p>{rankers.second.description}</p>
-              <a href="#">Read More</a>
-            </div>
-          </div>
-          <div style={cardThird} class="card">
-            <div class="content">
-              <h2>03</h2>
-              <h3>Card Three</h3>
-              <p>{rankers.third.description}</p>
-              <a href="#">Read More</a>
-            </div>
-          </div>
-        </div>
-      </div> */}
+            );
+          }
+        })}
+      </div>
+     
     </>
   );
 }
